@@ -1,7 +1,7 @@
 #!/bin/bash
 # run freeseats app from docker hub images
 docker network create revnet
-docker run -d -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=example -e POSTGRES_DB=reviews --name rdb --network revnet realshodak/rdbimg:cloud
+docker run -d -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=example -e POSTGRES_DB=reviews --name rdb --network revnet realshodak/rdbimg:latest
 echo "waiting for pg database before starting front end"
 sleep 5
-docker run -d -p 3010:3010 --name rfe --network revnet realshodak/rfeimg:cloud
+docker run -d -p 3010:3010 --name rfe --network revnet realshodak/rfeimg:latest
